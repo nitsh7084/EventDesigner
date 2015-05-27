@@ -1,5 +1,5 @@
 # EventDesigner
-The Event Designer Script created for Eventdyne(www.amituslab.com/eventdynev2/event-dyne/index.php)
+The Event Designer Script created for Eventdyne(http://amituslab.com/event_planner/design_event.php?event_url=myeventsix)
 
 This script allows eventdyne users to design, reposition, resize, print and save events with customized tables, sections, and custom sections such as dance floors, toilet, bathroom etc.
 
