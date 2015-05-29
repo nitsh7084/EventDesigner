@@ -26,6 +26,7 @@ this.init();
 
 EDEvent.prototype = {
 
+//initialize events
 init : function(){
 this.initEvents();
 this.createSvg();
