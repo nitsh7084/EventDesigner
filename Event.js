@@ -1,4 +1,8 @@
 
+//window.Eventdyne is the namespace used for the Eventdyne javascript stack.
+
+window.Eventdyne.Event = (function(){
+
 function EDEvent(rectangles,circles){
 this.eventContainer = document.querySelector('#eventContainer');
 this.rectangles = rectangles;
@@ -354,3 +358,6 @@ remove : function(){
 
 
 }
+
+
+})();
