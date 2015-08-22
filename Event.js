@@ -1,3 +1,4 @@
+
 function EDEvent(rectangles,circles){
 this.eventContainer = document.querySelector('#eventContainer');
 this.rectangles = rectangles;
@@ -15,11 +16,11 @@ this.eventTextObjectCreateButton = document.querySelector('#text_object_create_b
 this.saveEventButton = document.querySelector('#saveEventButton');
 this.elementEditContainer = document.querySelector('.elementEditContainer');
 this.dimCalculator = document.querySelector('.dim_calculator');
-this.event_sections = new Array();
-this.event_tables = new Array();
-this.event_objects = new Array();
-this.event_text_objects = new Array();
-this.remove_list = new Array();
+this.event_sections = [];
+this.event_tables = [];
+this.event_objects = [];
+this.event_text_objects = [];
+this.remove_list = [];
 this.eventId = document.querySelector('.event_id_container').innerHTML;
 this.eventId = this.eventId.trim();
 this.eventName = document.querySelector('.event_name_container').innerHTML;
