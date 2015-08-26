@@ -1,8 +1,8 @@
 
-function EDEvent(rectangles,circles){
+(function(){
+
+function EDEvent(){
 this.eventContainer = document.querySelector('#eventContainer');
-this.rectangles = rectangles;
-this.circles = circles;
 this.saveButton = document.querySelector("#saveEventButton");
 this.eventOptionObjectsButton = document.querySelector("#event_option_objects");
 this.eventObjectsOption = Array.prototype.slice.call(document.querySelectorAll('.event_objects_option'));
@@ -1050,3 +1050,8 @@ remove : function(){
 
 
 }
+
+
+new EDEvent();
+
+})(undefined);
