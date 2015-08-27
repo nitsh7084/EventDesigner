@@ -1,8 +1,7 @@
-
-(function(){
-
-function EDEvent(){
+function EDEvent(rectangles,circles){
 this.eventContainer = document.querySelector('#eventContainer');
+this.rectangles = rectangles;
+this.circles = circles;
 this.saveButton = document.querySelector("#saveEventButton");
 this.eventOptionObjectsButton = document.querySelector("#event_option_objects");
 this.eventObjectsOption = Array.prototype.slice.call(document.querySelectorAll('.event_objects_option'));
@@ -16,11 +15,11 @@ this.eventTextObjectCreateButton = document.querySelector('#text_object_create_b
 this.saveEventButton = document.querySelector('#saveEventButton');
 this.elementEditContainer = document.querySelector('.elementEditContainer');
 this.dimCalculator = document.querySelector('.dim_calculator');
-this.event_sections = [];
-this.event_tables = [];
-this.event_objects = [];
-this.event_text_objects = [];
-this.remove_list = [];
+this.event_sections = new Array();
+this.event_tables = new Array();
+this.event_objects = new Array();
+this.event_text_objects = new Array();
+this.remove_list = new Array();
 this.eventId = document.querySelector('.event_id_container').innerHTML;
 this.eventId = this.eventId.trim();
 this.eventName = document.querySelector('.event_name_container').innerHTML;
@@ -408,7 +407,7 @@ innerSvgContainer.setAttribute("width",rect_width);
 
 eventTableSeatsItemContainer.appendChild(table_edit_container);
 eventTableSeatsItemContainer.appendChild(innerSvgContainer);
-eventTableSeatsItemContainer.appenChild(elementRemoveContainer);
+eventTableSeatsItemContainer.appendChild(elementRemoveContainer);
 
 var bigCircle = document.createElementNS(this.svgns,"circle");
 bigCircle.setAttribute("r",cr);
@@ -1050,8 +1049,3 @@ remove : function(){
 
 
 }
-
-
-new EDEvent();
-
-})(undefined);
