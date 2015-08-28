@@ -1043,7 +1043,11 @@ drawSectionRow : function(){
 
 },
 
-remove : function(){
+//remove the item(table,section,object or text object) from the layout i.e. svg
+remove_item_from_layout : function(name,id){
+
+var element = document.querySelector('#'+id);
+element.parentNode.removeChild(element);
 
 }
 
