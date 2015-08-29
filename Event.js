@@ -1039,6 +1039,7 @@ return {pos_left:pos_left,pos_top:pos_top};
 },
 
 
+//draw section row method
 drawSectionRow : function(){
 
 },
