@@ -308,6 +308,7 @@ event_element_edit_container.querySelector('.event_info_input').value = text;
 
 
 drawCircleSeats : function(num,divx,divy){
+var self = this;
 var seats_coords = new Array();
 var cr = 0;
 divx = parseInt(divx);
@@ -389,7 +390,7 @@ table_edit_container.setAttribute("class","event_element_edit_container");
 table_edit_container.classList.add("event_new_item_container");
 
 var elementRemoveContainer = document.createElement('div');
-elementRemoveContainer.setAttribute('class','elementRemoveContainer');
+elementRemoveContainer.setAttribute('class','eventRemoveContainer');
 
 var eventTableSeatsItemContainer = document.createElement('div');
 eventTableSeatsItemContainer.classList.add("eventTableSeatsItemContainer");
@@ -440,6 +441,22 @@ var table_id = 'event_table_'+arr_id;
 this.event_tables.push({name:'',x:divx,y:divy,num_of_seats:num,id:arr_id});
 eventTableSeatsItemContainer.setAttribute("id",table_id);
 this.add_table_element_events('',num,arr_id);
+
+
+
+elementRemoveContainer.addEventListener('click',function(){
+ 
+var element = document.getElementById(table_id);
+var top = element.offsetTop;
+var left = element.offsetLeft;
+var height = element.offsetHeight;
+var width = element.offsetWidth;
+
+element.parentNode.removeChild(element); 
+self.remove_table('',left,top,num,self.eventId);
+console.log('left: '+left+' top: '+top+'num: '+num+' event_id: '+self.eventId);
+});
+
 
 },
 
@@ -607,8 +624,8 @@ eventTableSeatsItemContainer.classList.add("event_section_element_container");
 eventTableSeatsItemContainer.style.position = "absolute";
 eventTableSeatsItemContainer.style.top = section_y+"px";
 eventTableSeatsItemContainer.style.left = section_x+"px";
-eventTableSeatsItemContainer.style.height = "800px";
-eventTableSeatsItemContainer.style.width = "800px";
+eventTableSeatsItemContainer.style.height = "320px";
+eventTableSeatsItemContainer.style.width = "320px";
 
 
 var elementEditContainer = document.createElement('div');
@@ -1039,16 +1056,11 @@ return {pos_left:pos_left,pos_top:pos_top};
 },
 
 
-//draw section row method
 drawSectionRow : function(){
 
 },
 
-//remove the item(table,section,object or text object) from the layout i.e. svg
-remove_item_from_layout : function(name,id){
-
-var element = document.querySelector('#'+id);
-element.parentNode.removeChild(element);
+remove : function(){
 
 }
 
