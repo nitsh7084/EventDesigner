@@ -624,8 +624,8 @@ eventTableSeatsItemContainer.classList.add("event_section_element_container");
 eventTableSeatsItemContainer.style.position = "absolute";
 eventTableSeatsItemContainer.style.top = section_y+"px";
 eventTableSeatsItemContainer.style.left = section_x+"px";
-eventTableSeatsItemContainer.style.height = "320px";
-eventTableSeatsItemContainer.style.width = "320px";
+eventTableSeatsItemContainer.style.height = "240px";
+eventTableSeatsItemContainer.style.width = "160px";
 
 
 var elementEditContainer = document.createElement('div');
