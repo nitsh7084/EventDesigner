@@ -639,8 +639,8 @@ table_edit_container.classList.add("event_new_item_container");
 var foreignObject = document.createElementNS(this.svgns,"foreignObject");
 foreignObject.setAttribute("x",20);
 foreignObject.setAttribute("y",20);
-foreignObject.setAttribute("height","800");
-foreignObject.setAttribute("width","800");
+foreignObject.setAttribute("height","240");
+foreignObject.setAttribute("width","160");
 
 var innerSvgContainer = document.createElementNS(this.svgns,'svg');
 
@@ -1045,7 +1045,7 @@ console.log(data);
 },
 
 
-
+//get element position
 get_element_position : function(id){
 
 var pos_left = document.querySelector(id).offsetLeft;
