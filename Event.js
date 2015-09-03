@@ -624,8 +624,14 @@ eventTableSeatsItemContainer.classList.add("event_section_element_container");
 eventTableSeatsItemContainer.style.position = "absolute";
 eventTableSeatsItemContainer.style.top = section_y+"px";
 eventTableSeatsItemContainer.style.left = section_x+"px";
-eventTableSeatsItemContainer.style.height = "240px";
-eventTableSeatsItemContainer.style.width = "160px";
+var element_height,element_width;
+
+var obj = this.calculate_element_dimensions('section',num_of_seats,num_of_rows);
+
+console.log(obj);
+element_height = obj.ydist;
+element_width = obj.xdist;
+ 
 
 
 var elementEditContainer = document.createElement('div');
@@ -639,26 +645,26 @@ table_edit_container.classList.add("event_new_item_container");
 var foreignObject = document.createElementNS(this.svgns,"foreignObject");
 foreignObject.setAttribute("x",20);
 foreignObject.setAttribute("y",20);
-foreignObject.setAttribute("height","240");
-foreignObject.setAttribute("width","160");
+foreignObject.setAttribute("height",element_height);
+foreignObject.setAttribute("width",element_width);
 
 var innerSvgContainer = document.createElementNS(this.svgns,'svg');
 
-innerSvgContainer.setAttribute("height","800");
-innerSvgContainer.setAttribute("width","800");
+innerSvgContainer.setAttribute("height",element_height);
+innerSvgContainer.setAttribute("width",element_width);
 
 
 var section_text_container = document.createElementNS(this.svgns,'text');
 section_text_container.innerHTML = text;
 section_text_container.setAttribute("x","50");
-section_text_container.setAttribute("y","100");
+section_text_container.setAttribute("y","50");
 section_text_container.setAttribute("fill","#000");
 
 
 for(var j=0;j<num_of_rows;j++){
 for(var i=0;i<num_of_seats;i++){
 var cx = 40*i+40;
-var cy = 40*j+140;
+var cy = 40*j+90;
 var section_circle = document.createElementNS(this.svgns,'circle');
 section_circle.setAttribute("cx",cx);
 section_circle.setAttribute("cy",cy);
@@ -1053,6 +1059,24 @@ var pos_top = document.querySelector(id).offsetTop;
 
 return {pos_left:pos_left,pos_top:pos_top};
 
+},
+
+calculate_element_dimensions : function(element,num_of_seats,num_of_rows){
+
+switch(element){
+
+case 'section':
+var xdist = (num_of_seats*40)+40;
+var ydist = (num_of_rows)*40+90;
+return {xdist:xdist,ydist:ydist}
+break; 
+
+case 'table':
+
+break;
+ 
+} 
+ 
 },
 
 
