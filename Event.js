@@ -25,6 +25,8 @@ this.eventId = this.eventId.trim();
 this.eventName = document.querySelector('.event_name_container').innerHTML;
 this.eventName = this.eventName.trim();
 this.databaseObject = new EventDB(this.eventName);
+this.eventMessageContainer = document.querySelector('.eventMessageContainer');
+this.eventLightboxContainer = document.querySelector('.eventLightboxContainer');
 this.init();
 }
 
@@ -40,6 +42,23 @@ this.createSvg();
 
 initEvents : function(){
 var self = this;
+window.onresize = function(event){
+
+if(window.innerWidth < 800){
+self.eventMessageContainer.innerHTML = '<div class="message">The designer tool is not yet responsive and will not work properly on smaller devices, we are trying to find the correct format for the tool to be used on smaller devices and will let you know once it\'s available!</div>';
+self.eventMessageContainer.classList.add('show');
+
+self.eventMessageContainer.addEventListener('click',function(){
+
+this.classList.remove('show'); 
+});
+
+}else{
+ 
+self.eventMessageContainer.classList.remove('show'); 
+}
+ 
+}
 this.saveButton.addEventListener('click',function(){
 self.saveElements(self.rectangles,self.circles);
 });
@@ -376,11 +395,12 @@ break;
 
 }
 
+
 var foreignElement = document.createElementNS(this.svgns,"foreignObject");
 foreignElement.setAttribute("x","0");
 foreignElement.setAttribute("y","0");
-foreignElement.setAttribute("height","800");
-foreignElement.setAttribute("width","800");
+foreignElement.setAttribute("height","140");
+foreignElement.setAttribute("width","180");
 
 var elementEditContainer = document.createElement('div');
 elementEditContainer.setAttribute("class","element_edit_container");
@@ -399,12 +419,12 @@ eventTableSeatsItemContainer.classList.add("event_draggable");
 eventTableSeatsItemContainer.style.position = "absolute";
 eventTableSeatsItemContainer.style.top = divy+"px";
 eventTableSeatsItemContainer.style.left = divx+"px";
-eventTableSeatsItemContainer.style.height = rect_height+"px";
-eventTableSeatsItemContainer.style.width = rect_width+"px";
+eventTableSeatsItemContainer.style.height = "140px";
+eventTableSeatsItemContainer.style.width = "180px";
 
 var innerSvgContainer = document.createElementNS(this.svgns,"svg");
-innerSvgContainer.setAttribute("height",rect_height);
-innerSvgContainer.setAttribute("width",rect_width);
+innerSvgContainer.setAttribute("height","140");
+innerSvgContainer.setAttribute("width","180");
 
 eventTableSeatsItemContainer.appendChild(table_edit_container);
 eventTableSeatsItemContainer.appendChild(innerSvgContainer);
@@ -653,18 +673,17 @@ var innerSvgContainer = document.createElementNS(this.svgns,'svg');
 innerSvgContainer.setAttribute("height",element_height);
 innerSvgContainer.setAttribute("width",element_width);
 
-
 var section_text_container = document.createElementNS(this.svgns,'text');
 section_text_container.innerHTML = text;
 section_text_container.setAttribute("x","50");
-section_text_container.setAttribute("y","50");
+section_text_container.setAttribute("y","70");
 section_text_container.setAttribute("fill","#000");
 
 
 for(var j=0;j<num_of_rows;j++){
 for(var i=0;i<num_of_seats;i++){
 var cx = 40*i+40;
-var cy = 40*j+90;
+var cy = 40*j+110;
 var section_circle = document.createElementNS(this.svgns,'circle');
 section_circle.setAttribute("cx",cx);
 section_circle.setAttribute("cy",cy);
@@ -1070,10 +1089,6 @@ var xdist = (num_of_seats*40)+40;
 var ydist = (num_of_rows)*40+90;
 return {xdist:xdist,ydist:ydist}
 break; 
-
-case 'table':
-
-break;
  
 } 
  
