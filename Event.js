@@ -42,6 +42,12 @@ this.createSvg();
 
 initEvents : function(){
 var self = this;
+
+document.querySelector('.event_section_element_container').addEventListener('click',function(){
+
+self.show_element_options(this);	
+});	
+
 window.onresize = function(event){
 
 if(window.innerWidth < 800){
@@ -1101,6 +1107,11 @@ drawSectionRow : function(){
 
 remove : function(){
 
+},
+
+show_element_options : function(element){
+	
+element.querySelector('.element_options_container').classList.add('show');
 }
 
 
