@@ -626,6 +626,10 @@ this.svgns = this.svgContainer.namespaceURI;
 this.svgContainer.setAttribute("height",800);
 this.svgContainer.setAttribute("width","100%");
 this.svgContainer.setAttribute("fill","green");
+this.svgContainer.setAttribute("xmlns","http://www.w3.org/2000/svg");
+this.svgContainer.setAttribute("xmlns:svg","http://www.w3.org/2000/svg");
+this.svgContainer.setAttribute("version","1.0");
+this.svgContainer.setAttribute("viewBox","0 0 1000 1000");
 this.svgContainer.setAttribute("id","event_planner_svg_container");
 this.eventPlannerContainer.appendChild(this.svgContainer);
 },
