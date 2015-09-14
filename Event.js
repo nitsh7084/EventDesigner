@@ -1110,8 +1110,20 @@ remove : function(){
 },
 
 show_element_options : function(element){
+
+var element_options_container = element.querySelector('.element_options_container');	
+element_options_container.classList.add('show');
+
+element_options_container.querySelector('.element_options_cancel').addEventListener('click',function(){
+
+element_options_container.classList.remove('show');	
+});
+
+element_options_container.querySelector('.element_options_delete').addEventListener('click',function(){
 	
-element.querySelector('.element_options_container').classList.add('show');
+show_delete_confirmation_dialog();	
+});
+
 }
 
 
