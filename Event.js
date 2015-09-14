@@ -1124,7 +1124,17 @@ element_options_container.querySelector('.element_options_delete').addEventListe
 show_delete_confirmation_dialog();	
 });
 
-}
+}, 
+
+
+show_delete_confirmation_dialog : function(){
+
+document.querySelector('.element_options_container .delete_confirm_button').addEventListener('click',function(){
+
+remove_section_element();	
+});	
+
+}	
 
 
 }
