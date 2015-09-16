@@ -1131,9 +1131,15 @@ show_delete_confirmation_dialog : function(){
 
 document.querySelector('.element_options_container .delete_confirm_button').addEventListener('click',function(){
 
-remove_section_element();	
+remove_section_element(section_id);	
 });	
 
+},
+
+remove_section_element : function(section_id){
+
+var section_element = document.getElementById(section_id);	
+section_element.parentNode.removeChild(section_element);	
 }	
 
 
