@@ -1105,6 +1105,10 @@ drawSectionRow : function(){
 
 remove : function(){
 
+}, 
+
+remove_section_element : function(){
+	
 }
 
 
