@@ -42,6 +42,12 @@ this.createSvg();
 
 initEvents : function(){
 var self = this;
+
+document.querySelector('.event_section_element_container').addEventListener('click',function(){
+
+self.show_element_options(this);	
+});	
+
 window.onresize = function(event){
 
 if(window.innerWidth < 800){
@@ -623,7 +629,6 @@ this.svgContainer.setAttribute("fill","green");
 this.svgContainer.setAttribute("xmlns","http://www.w3.org/2000/svg");
 this.svgContainer.setAttribute("xmlns:svg","http://www.w3.org/2000/svg");
 this.svgContainer.setAttribute("version","1.0");
-this.svgContainer.setAttribute("viewBox","0 0 1000 1000");
 this.svgContainer.setAttribute("id","event_planner_svg_container");
 this.eventPlannerContainer.appendChild(this.svgContainer);
 },
@@ -1109,7 +1114,40 @@ remove : function(){
 
 remove_section_element : function(){
 	
-}
+},
+
+show_element_options : function(element){
+
+var element_options_container = element.querySelector('.element_options_container');	
+element_options_container.classList.add('show');
+
+element_options_container.querySelector('.element_options_cancel').addEventListener('click',function(){
+
+element_options_container.classList.remove('show');	
+});
+
+element_options_container.querySelector('.element_options_delete').addEventListener('click',function(){
+	
+show_delete_confirmation_dialog();	
+});
+
+}, 
+
+
+show_delete_confirmation_dialog : function(){
+
+document.querySelector('.element_options_container .delete_confirm_button').addEventListener('click',function(){
+
+remove_section_element(section_id);	
+});	
+
+},
+
+remove_section_element : function(section_id){
+
+var section_element = document.getElementById(section_id);	
+section_element.parentNode.removeChild(section_element);	
+}	
 
 
 }
